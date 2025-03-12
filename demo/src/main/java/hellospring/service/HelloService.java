@@ -1,4 +1,4 @@
 package hellospring.service;
 
-public class HelloService {
+public interface HelloService {
 }
