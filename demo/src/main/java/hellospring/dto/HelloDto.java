@@ -10,4 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class HelloDto {
+    private String name;
+    private int age;
+    private String message;
 }
