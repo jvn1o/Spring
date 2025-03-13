@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class HelloDto {
+    private Long id;
     private String name;
     private int age;
     private String message;
