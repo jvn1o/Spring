@@ -1,4 +1,4 @@
-package hellospring.service;
-
-public interface HelloService {
-}
+//package hellospring.service;
+//
+//public interface HelloService {
+//}
