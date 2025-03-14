@@ -1,4 +1,4 @@
-package hellospring.repository;
-
-public interface HelloRepository{
-}
+//package hellospring.repository;
+//
+//public interface HelloRepository{
+//}
