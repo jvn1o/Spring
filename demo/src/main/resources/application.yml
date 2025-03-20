@@ -1,22 +1,10 @@
-#spring:
-#  profiles:
-#    active: dev #dev #prod
-#    include: secret #민감정보 secret파일
-#
-##  config:
-##    import: "file:/home/new8th3/application-secret.yml"
-#
-#  web:
-#    resources:
-#      static-locations: file:./uploads/
-#  servlet:
-#    multipart:
-#      enabled: true
-#      max-file-size: 500MB
-#      max-request-size: 1024MB
-#server:
-#  servlet:
-#    context-path: /api/v1
-#
-#file:
-#  upload-dir: ./uploads
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:jvn1orcl  # 오라클 DB 주소
+    username: jvn1orcl  # 오라클 DB 사용자 이름
+    password: 19990610  # 오라클 DB 비밀번호
+    driver-class-name: oracle.jdbc.OracleDriver  # 오라클 JDBC 드라이버
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect  # Hibernate 오라클 Dialect
+    hibernate:
+      ddl-auto: update  # 필요하면 create, update, validate 설정 가능
