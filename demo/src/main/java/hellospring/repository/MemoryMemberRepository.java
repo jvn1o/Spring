@@ -21,12 +21,14 @@ public class MemoryMemberRepository implements MemberRepository {
 
     @Override
     public Optional<Member> findById(long id) {
-        return Optional.empty();
+        return Optional.ofNullable(store.get(id)); // null 값을 대비
     }
 
     @Override
     public Optional<Member> findByName(String name) {
-        return Optional.empty();
+        return store.values().stream()
+                .filter(member -> member.getName().equals(name))
+                .findAny();
     }
 
     @Override
