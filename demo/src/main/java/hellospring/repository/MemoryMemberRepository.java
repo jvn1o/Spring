@@ -9,11 +9,14 @@ import java.util.Optional;
 
 public class MemoryMemberRepository implements MemberRepository {
 
-    private static Map<Long, Member> members = new HashMap<>();>
+    private static Map<Long, Member> store = new HashMap<>();
+    private static long sequence = 0L;
 
     @Override
     public Member save(Member member) {
-        return null;
+        member.setId(++sequence);
+        store.put(member.getId(), member);
+        return member;
     }
 
     @Override
