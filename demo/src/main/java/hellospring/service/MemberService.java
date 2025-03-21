@@ -9,11 +9,15 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     // 회원 가입
     public Long join(Member member) {
-        // 중복 ID 금지 -> ctrl + alt + v
+        // 중복 이름 금지 -> ctrl + alt + v
         /* 권장하지 않는 방법
         Optional<Member> result = memberRepository.findById(member.getId());
         result.ifPresent(m -> {
@@ -26,7 +30,7 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        memberRepository.findById(member.getId())
+        memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
