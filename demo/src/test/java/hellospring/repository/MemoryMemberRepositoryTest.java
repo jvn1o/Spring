@@ -1,6 +1,7 @@
 package hellospring.repository;
 
 import hellospring.domain.Member;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MemoryMemberRepositoryTest {
 
-    MemberRepository repository = new MemoryMemberRepository();
+    MemoryMemberRepository repository = new MemoryMemberRepository();
+
+    @AfterEach // 각 실행 이후 따라오는 실행
+    public void afterEach() {
+        repository.clearStore(); // 테스트는 서로의 결과에 의존성이 없어야 한다.
+    }
 
     @Test
     public void save() {
